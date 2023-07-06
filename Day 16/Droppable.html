@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="http://code.jquery.com/ui/1.10.4/themes/ui-lightness/jquery-ui.css" rel="stylesheet">  
+    <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+    <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
+    <style>
+        #div1{
+          width: 300px;
+          height: 300px;
+          background-color: rgb(20, 220, 120);  
+        }
+        #div2{
+            width: 500px;
+            height: 500px;
+            background-color: rgb(224, 7, 7);
+        }
+        p{
+            font-weight: 900;
+            font-stretch: extra-expanded;
+        }
+    </style>
+    <script type="text/javascript">
+        $(document).ready(function(){
+            $("#div1").draggable();
+            $("#div2").droppable({
+            accept : "#div1",
+            drop:function(event,ui){
+            $(this).addClass("MyCls").find("p").html("DONE..");
+            }
+        });
+        });
+    </script>
+</head>
+<body>
+    <div id="div1">
+        <p>HELLO!!DRAG ME...</p>
+    </div><hr>
+    <div id="div2">
+        <p>DROP ON ME!!</p>
+    </div>
+</body>
+</html>
